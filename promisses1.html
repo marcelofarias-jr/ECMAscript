@@ -1,0 +1,34 @@
+<html>
+  <head></head>
+  <body>
+   
+    <script>
+      let resposta= {}
+
+      let promessa = new Promise(( resolve, reject)=>{
+        try {
+          //forçando erro
+          // throw new Error('Opa, houve um erro')
+
+          setTimeout(()=>{
+            resposta = {dados: {mensagem:'Recuperamos os dados com sucesso'}}
+            resolve('Sucesso')
+          }, 3000)
+
+        } catch(e){
+          
+          setTimeout(()=>{
+            reject(e)
+          }, 3000)
+
+        }
+      })
+      console.log(promessa)
+
+      setTimeout(()=>{
+        console.log(promessa)
+        console.log(resposta)
+      }, 5000)
+    </script>
+  </body>
+</html>

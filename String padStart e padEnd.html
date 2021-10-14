@@ -1,0 +1,22 @@
+<html>
+  <head></head>
+  <body>
+   
+    <script>
+
+      //adicona(preenche) itens em um array a esquerda (padStart) e a direita (padEnd)
+
+      let codigo = '1000'
+
+      //expectativa 0000001000
+
+      codigo = codigo.padStart(10, 'xzxzxzaaaaa')
+
+      console.log(codigo)
+
+      let codigo2 = '500'
+      codigo2 = codigo2.padEnd(12, 'wwwwwwwwwwwwwww')
+      console.log(codigo2)
+    </script>
+  </body>
+</html>

@@ -1,0 +1,51 @@
+<html>
+  <head></head>
+  <body>
+   
+    <script>
+      let promessa = new Promise((resolve, reject) =>{
+        /*try{
+
+        }catch(e){
+
+        }*/
+
+        //requisições http são feitas sem saber a resposta ou o tempo da resposta
+        //nesse caso  promisses ajudam que o código não quebre
+        //requisição http para recuperar uma lista de usuários
+        setTimeout(() =>{
+
+          //requisição realizada de alguma forma
+          let resposta_requisição = {}
+          
+          //tratamento de erro
+          if(true){
+            resposta_requisição = {
+              codigo: 1050,
+              erro: 'Falha de autorização'
+            }
+            reject(resposta_requisição)
+          }
+          resposta_requisição = {
+            0: { id: 1, nome: 'João'},
+            1: { id: 2, nome: 'Maria'},
+            2: { id: 3, nome: 'Pedro'},
+          }
+          resolve(resposta_requisição)
+        }, 4000)
+        //then permite executar uma ação após a promisse ser resolvida
+      }).then(dados =>{
+        console.log('Operação sequencial: ', dados)
+        return 'Parametro para o then 2'
+      }).then(parang =>{
+        console.log('Then dois: ', parang)
+      }).catch(erro =>{//caso a promisse devolva um resolve a parte do catch é pulada, 
+        //os then após o catch são executados normalmente mas sem o parametro passado
+        console.log('Operação sequencial (Catch)', erro)
+        return 'Parametro capturado no catch e enviado para o then'
+      }).then(parametro =>{
+        console.log('Then após o catch de erro;', parametro)
+      })
+    </script>
+  </body>
+</html>

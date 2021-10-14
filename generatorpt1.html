@@ -1,0 +1,42 @@
+<html>
+  <head></head>
+  <body>
+   
+    <script>
+    //recuperando partes de um array ou objeto
+    function* conversar(){
+      //1º bloco
+      let opcao = yield 'E ai tudo bem?'
+
+      //2º bloco
+     //nesse ponto recebe o parametro enviado no next (opcao)
+      if (opcao == 'sim'){
+      yield 'Ótimo, fico feliz!'
+      yield 'Digite 1 para compras, 2 para vendas ou 3 para falar com um atendente'
+    }else {
+      yield 'Respire fundo e tenha paciência'
+      yield 'Digite 1 para compras, 2 para vendas ou 3 para falar com um atendente'
+    } 
+      
+    }
+
+    let conversa = conversar() //objeto iterator
+
+   
+
+    function acao(){
+      let resposta = document.getElementById('resposta').value
+      //limpando o campo
+      document.getElementById('resposta').value = ''
+      let interação = conversa.next(resposta)
+      console.log(interação)
+    }
+
+    </script>
+
+  <div id="teste">
+    <button type="button" onclick="acao()" autocomplete="off"> Avançar </button>
+    Resposta: <input type="text" id="resposta">
+  </div>
+</body>
+</html>

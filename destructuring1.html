@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+     <!-- HTML Shiv -->
+    <!--[if lt IE 9]>
+      <script src="bower_components/html5shiv/dist/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Font Awesome -->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+	<!-- Normalize -->
+	<link rel="stylesheet" type="text/css" href="normalize.css">
+
+	<!-- Css -->
+	<link rel="stylesheet" type="text/css" href="style.css">
+
+  <!-- JS -->
+  <link rel="stylesheet" type="text/js" href="script.js">
+  
+    <title>Abstração</title>
+  <script>
+  
+    //destructuring - extrai valores de dentro de uma estrutura (array ou objeto)
+    // como utiliar no contexto de array
+    let frutas = ['Abacaxi', 'Uva', 'Pera', 'Mamão']
+    //let a = frutas[0]
+    //destructuring
+    //let [ a, b, , c] = frutas //pulando um indice
+    // voce pode setar um valor defalt caso não tenha nada naquele indice, mas se tiver o valor permanecerá como o do array inicial
+    let [a, b, c = 'abacate', d, e = 'Banana'] = frutas
+
+    console.log(a, b, c, d, e)
+    //array bi dimensional
+    let coisas = [['Abacaxi', 'Uva', 'Pera', 'Mamão'],['José', 'Maria']]
+   //pulando um array e pulando um indice do segundo array
+    let [[ , , z,],[, x]] = coisas
+    console.log(x, z)
+
+
+
+  </script>
+  </head>
+  <body>
+    
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>

@@ -1,0 +1,70 @@
+<html>
+  <head></head>
+  <body>
+   
+    <script>
+    //recuperando partes de um array ou objeto
+    function* conversar(){
+      //1º bloco
+      let opcao = yield 'E ai tudo bem?'
+
+      //2º bloco
+     //nesse ponto recebe o parametro enviado no next (opcao)
+    if (opcao == 'sim'){
+        yield 'Ótimo, fico feliz!'
+
+        //3º bloco
+        opcao = yield 'Como eu posso te ajudar? Quer uma piada para começar?'
+        if(opcao == 'sim'){
+          fetch ('dados/piadas.json')
+            .then(resposta => resposta.json())
+            .then(piadas => {
+              let idx = Math.floor(Math.random()*10)
+              let piada = piadas[idx]
+
+              console.log(piada.piada)
+
+              setTimeout(() => {
+                console.log(piada.resposta)
+                console.log('hahahahahaha! Muito boa!')
+                
+                return true
+              }, 4000)              
+            })
+        }
+        else{
+          yield 'Digite 1 para compras, 2 para vendas ou 3 para falar com um atendente'
+        }
+      }
+    else {
+      yield 'Respire fundo e tenha paciência'
+       //3º bloco
+      yield 'Digite 1 para compras, 2 para vendas ou 3 para falar com um atendente'
+      } 
+
+
+    yield 'Atendimento finalizado'
+    }   
+
+    let conversa = conversar() //objeto iterator
+
+    function acao(){
+      let resposta = document.getElementById('resposta').value
+      //limpando o campo
+      document.getElementById('resposta').value = ''
+      let interacao = conversa.next(resposta)
+      console.log(interacao)
+      //removendo o botão
+      if(interacao.done){
+        document.getElementById('teste').style.display = 'none'
+      }
+    }
+
+    </script>
+
+    <div id="teste">
+      <button type="button" onclick="acao()" autocomplete="off"> Avançar </button>
+      Resposta: <input type="text" id="resposta">
+    </div>
+  </body>
+</html>

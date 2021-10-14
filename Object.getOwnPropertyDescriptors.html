@@ -1,0 +1,62 @@
+<html>
+  <head></head>
+  <body>
+   
+    <script>
+
+      // metodo que permite a analise dos descritores de propriedades
+      let objeto = {
+          nome: 'Marcelo Farias',
+          profissional: {
+            site: 'https://github.com/marcelofarias-jr',
+            profissao: 'Programador'
+          },
+            hobbies: [
+              {id: 1, hobby: 'Ir a praia'},
+              {id: 2, hobby: 'Tomar café'},
+            ],
+            pais: 'Brasil'
+        }
+
+        //console.log(Object.getOwnPropertyDescriptors(objeto))
+
+        //descrior writable: quando definido como false indica que o valor da propriedade 
+        //n poderá ser modificada
+
+        // Object.defineProperty(objeto, 'nome',{
+        //   value: 'Antonio Soares',
+        //   writable: false
+        // })
+        // console.log(Object.getOwnPropertyDescriptors(objeto))
+
+
+         //descrior Enumerable: quando definido como a propriedade em questão
+         //não é exibida em laços de repetição
+         
+        //  Object.defineProperty(objeto, 'hobbies',{
+        //    enumerable: false
+        //  })
+        //  Object.defineProperty(objeto, 'profissional',{
+        //    enumerable: false
+        //  })
+
+        //   console.log(Object.getOwnPropertyDescriptors(objeto))
+        //   console.log('___________________________')
+
+        //   for(let propriedade in objeto) {
+        //    console.log(propriedade, objeto[propriedade])
+        //  }
+
+        //descrior Configurable: quando definido como false indica que a propriedade 
+        //não poderá ser deletada e não poderemos modificar os descritores, exceto a mudança
+        //de writable para false
+        console.log(Object.getOwnPropertyDescriptors(objeto))
+
+        Object.defineProperty(objeto, 'pais',{
+          configurable: false
+        })
+        
+        console.log(Object.getOwnPropertyDescriptors(objeto))  
+    </script>
+  </body>
+</html>
